@@ -40,11 +40,9 @@ git --version
 Desde la carpeta donde quieras guardar el proyecto:
 
 ```powershell
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/SalomeGarcia2006/ProyectoIntegradorFastAPIEcommerce.git
 cd ecommerce
 ```
-
-Reemplaza `URL_DEL_REPOSITORIO` por la URL real del repositorio.
 
 ## Crear el entorno virtual
 
@@ -486,25 +484,6 @@ Verifica que:
 3. El login se envíe como formulario usando los campos `username` y `password`.
 4. La aplicación esté ejecutándose.
 
-### Error de módulo no encontrado
-
-Comprueba que el entorno virtual esté activo y reinstala las dependencias:
-
-```powershell
-pip install -r requirements.txt
-```
-
-### El puerto 8000 está ocupado
-
-Puedes ejecutar la aplicación en otro puerto:
-
-```powershell
-uvicorn app.main:app --reload --port 8001
-```
-
-En ese caso, Swagger estará en `http://127.0.0.1:8001/docs`.
-
-## Seguridad
 
 Las credenciales incluidas en este README son únicamente para desarrollo. Antes de publicar el proyecto:
 
