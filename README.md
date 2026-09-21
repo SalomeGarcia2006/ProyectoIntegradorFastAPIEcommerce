@@ -131,6 +131,59 @@ python crear_admin.py
 
 El script crea un administrador si todavía no existe.
 
+
+
+### Solución al error de bcrypt
+
+Al ejecutar `crear_admin.py` puede aparecer el siguiente error relacionado con la longitud de la contraseña:
+
+```text
+ValueError: password cannot be longer than 72 bytes
+```
+
+Este problema se presenta por incompatibilidad entre `Passlib` y versiones recientes de `bcrypt`.
+
+Para solucionarlo, se desinstala la versión actual de `bcrypt` y se instala una versión compatible:
+
+```bash
+pip uninstall bcrypt
+```
+
+Después:
+
+```bash
+pip install bcrypt==4.3.0
+```
+
+Finalmente, se verifica la versión instalada:
+
+```bash
+pip show bcrypt
+```
+
+Debe aparecer:
+
+```text
+Version: 4.3.0
+```
+
+Luego se puede ejecutar nuevamente el script de creación del administrador:
+
+```bash
+python crear_admin.py
+```
+
+Si aparece:
+
+```text
+Usuario administrador creado correctamente.
+```
+
+significa que el administrador fue creado correctamente.
+
+> **Nota:** Puede aparecer el mensaje `(trapped) error reading bcrypt version` de Passlib relacionado con `__about__.__version__`. Aunque se muestre este mensaje, si el script termina indicando que el usuario administrador fue creado correctamente, la operación se realizó con éxito.
+ 
+
 ### Credenciales del administrador de prueba
 
 ```text
